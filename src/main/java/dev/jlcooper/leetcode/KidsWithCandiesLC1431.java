@@ -15,10 +15,33 @@ import java.util.List;
 *
 * */
 
-public class Leetcode1431 {
+public class KidsWithCandiesLC1431 {
+
+
+    int maxCandies = 0;
+    List<Boolean> result = new ArrayList<>();
 
 
     public List<Boolean> kidsWithCandies(int[] candies, int extraCandies) {
-        return new ArrayList<>();
+
+        //find the maxCandies
+        for(int i = 0; i < candies.length; i++){
+
+            if(candies[i] > maxCandies){
+                maxCandies = candies[i];
+            }
+        }
+
+        //compute the array
+        for(int i = 0; i < candies.length; i++){
+
+            if(candies[i] + extraCandies >= maxCandies)
+                result.add(true);
+            else
+                result.add(false);
+
+        }
+
+        return result;
     }
 }
